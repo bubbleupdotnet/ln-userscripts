@@ -7,7 +7,7 @@
 // @match        https://www.ticketmaster.com/event/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ticketmaster.com
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/bubbleupdotnet/ln-userscripts/main/show_disco_ids_on_tm_pages.user.js
+// @downloadURL  https://github.com/bubbleupdotnet/ln-userscripts/raw/main/show_disco_ids_on_tm_pages.user.js
 // ==/UserScript==
 
 (function() {
