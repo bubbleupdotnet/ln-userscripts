@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ticketmaster EDP Discovery Popup
 // @namespace    https://bubbleup.net
-// @version      0.1
+// @version      0.3
 // @description  Shows an alert popup on TM EDP to give you the discovery ID
 // @author       eric@bubbleup.net
 // @match        https://www.ticketmaster.com/event/*
@@ -85,6 +85,7 @@ function initializePopupWindow(config){
         document.body.appendChild(self.wrapper)
 
         self.bottomElement.textContent = self.config.bottom || ''
+
     }
 
     function hide() {
@@ -92,17 +93,34 @@ function initializePopupWindow(config){
     }
 
     function createElements() {
+        self.closeButton = document.createElement('button')
+        self.closeButton.className = 'close-button'
+        self.closeButton.innerHTML = '&times;'
+        self.closeButton.onclick = function() { hide() }
+
         self.wrapper = document.createElement('div')
         self.wrapper.className = 'quick-copy-popup quick-copy-popup__wrapper'
+
+        self.wrapper.appendChild(self.closeButton)
 
         self.contentContainer = document.createElement('textarea')
         self.contentContainer.className = 'quick-copy-popup__content'
 
         self.wrapper.appendChild(self.contentContainer)
 
+        self.copyButton = document.createElement('button')
+        self.copyButton.className = 'copy-button'
+        self.copyButton.innerHTML = 'Copy Content'
+        self.copyButton.onclick = function() {
+            navigator.clipboard.writeText(self.contentContainer.value);
+        }
+
+        self.wrapper.appendChild(self.copyButton)
+
         self.bottomElement = document.createElement('div')
         self.bottomElement.className = 'quick-copy-popup__bottom'
         self.wrapper.appendChild(self.bottomElement)
+
     }
 
     function addStyling() {
@@ -116,19 +134,51 @@ function initializePopupWindow(config){
         style.id = styleElementId
 
         style.textContent = `
-.quick-copy-popup__wrapper{
-    position: fixed;
-    left: 40%;
-    top: 40%;
-    width: 20vw;
-    height: 13vw;
-    border: thin solid grey;
-
+.close-button {
+    float: right;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 3em;
+    padding-right: .25em;
 }
 
-.quick-copy-popup__content{
+.copy-button:hover {
+    background: #ccc;
+}
+
+.copy-button {
+    background: rgb(255, 255, 255);
+    border: solid .05em black;
+    border-radius: .25em;
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    margin: 0 0 .75em 5.25em;
+    padding: 0 .25em;
+}
+
+.quick-copy-popup__wrapper {
+    position: absolute;
+    background: #0156b2;
+    left: 24%;
+    top: 40%;
+    width: 25vw;
+    height: 18vw;
+    border: solid 5px #0156b2;;
+}
+
+.quick-copy-popup__content {
+    text-align: justified;
+    background: #0156b2;
+    color: white;
+    padding: 1.5em 1.5em 1.5em 5em;
+    font-size: 1.42em;
     width: 100%;
-    height: 100%;
+    height: 65%;
+    resize: none;
+    outline: none;
+    border: none;
 }
 `
         document.head.appendChild(style)
