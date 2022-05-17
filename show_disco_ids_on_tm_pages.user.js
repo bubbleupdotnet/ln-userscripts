@@ -5,6 +5,9 @@
 // @description  Shows an alert popup on TM EDP to give you the discovery ID
 // @author       eric@bubbleup.net
 // @match        https://www.ticketmaster.com/event/*
+// @match        https://www.ticketmaster.com/*/event/*
+// @match        https://concerts.livenation.com/*/event/*
+// @match        https://concerts.livenation.com/event/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ticketmaster.com
 // @grant        none
 // @downloadURL  https://github.com/bubbleupdotnet/ln-userscripts/raw/main/show_disco_ids_on_tm_pages.user.js
@@ -59,14 +62,19 @@
     function initialize(){
         var detailsToShow = getDiscoveryInfo()
 
-        console.log(JSON.stringify(detailsToShow))
+        //console.log(JSON.stringify(detailsToShow))
 
         var popupMessage = formatObjectToString(detailsToShow)
 
         showPopup(popupMessage)
     }
 
-    initialize()
+    try {
+        initialize()
+    } catch(e){
+        console.warn('Discovery ID Popup tried to load, but encountered an error.', e);
+    }
+
 })();
 
 function initializePopupWindow(config){
@@ -179,6 +187,9 @@ function initializePopupWindow(config){
     resize: none;
     outline: none;
     border: none;
+}
+.quick-copy-popup__bottom {
+    color: white;
 }
 `
         document.head.appendChild(style)
