@@ -23,7 +23,7 @@
 
 //
         return {
-            'Event ID': event.discoveryId,
+            'Event Discovery ID': event.discoveryId,
             'Artist' : event.primaryArtist.name,
             'Artist ID': event.primaryArtist.discoveryId,
             'Venue': event.venue.name,
