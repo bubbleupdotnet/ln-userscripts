@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ticketmaster EDP Discovery Popup
 // @namespace    https://bubbleup.net
-// @version      0.5
+// @version      0.6
 // @description  Shows an alert popup on TM EDP to give you the discovery ID
 // @author       eric@bubbleup.net
 // @match        https://www.ticketmaster.com/event/*
