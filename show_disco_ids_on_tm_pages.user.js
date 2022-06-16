@@ -27,7 +27,8 @@
             'Artist' : event.primaryArtist.name,
             'Artist ID': event.primaryArtist.discoveryId,
             'Venue': event.venue.name,
-            'Venue ID': event.venue.discoveryId
+            'Venue ID': event.venue.discoveryId,
+            'Artist Genre': event.primaryArtist.classifications[0].genre.name
         }
 
     }
