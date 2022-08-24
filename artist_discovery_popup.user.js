@@ -61,8 +61,8 @@
             style.textContent = `
      #popup-container {
         position: absolute;
-        top: 18%;
-        left: 62%;
+        top: 13%;
+        left: 58%;
         margin: 0;
         padding: 9px;
         background: #E21836;
@@ -120,7 +120,7 @@
             style.textContent = `
      #popup-container {
         position: absolute;
-        top: 10%;
+        top: 8%;
         left: 38.25%;
         margin: 0;
         padding: 9px;
