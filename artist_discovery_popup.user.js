@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name         Ticketmaster/Live Nation EDP Discovery Popup
+// @name         Ticketmaster/Live Nation Artist Detail Discovery Popup
 // @namespace    http://bubbleup.net/
-// @version      0.2
-// @description  Shows an alert popup on TM EDP to give you the discovery ID
+// @version      0.3
+// @description  Shows an alert popup on TM ADP to give you the discovery ID
 // @author       daniel@bubbleup.net
 // @match        https://www.ticketmaster.com/*/artist/*
 // @match        https://www.livenation.com/artist/*/*
+// @match        https://www.ticketmaster.com/artist/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ticketmaster.com
 // @grant        none
 // @downloadURL  https://github.com/bubbleupdotnet/ln-userscripts/raw/main/artist_discovery_popup.user.js
